@@ -1,0 +1,22 @@
+{
+  "name": "@tobymosque/quasar-app-extension-q-branded-components",
+  "version": "0.0.1",
+  "description": "Quasar Components with dynamic defaults",
+  "author": "Tobias Mesquita <tobias.mesquita@gmail.com>",
+  "license": "MIT",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TobyMosque/q-branded-components"
+  },
+  "bugs": "https://github.com/TobyMosque/q-branded-components/issues",
+  "homepage": "",
+  "dependencies": {
+    "@tobymosque/quasar-ui-q-branded-components": "^0.0.1"
+  },
+  "engines": {
+    "node": ">= 8.9.0",
+    "npm": ">= 5.6.0",
+    "yarn": ">= 1.6.0"
+  }
+}
