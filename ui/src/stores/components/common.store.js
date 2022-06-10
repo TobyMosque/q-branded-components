@@ -1,4 +1,5 @@
 import { toRefs, reactive } from 'vue'
+import { useFieldStore } from './field.store'
 
 const inputStates = new Map()
 const popupStates = new Map()
@@ -7,8 +8,8 @@ const popupStates = new Map()
  */
 export function useInputCommonStore (context = 'default') {
   const fieldState = useFieldStore(context)
-  if (!states.has(context)) {
-    states.set(context, toRefs(reactive({
+  if (!inputStates.has(context)) {
+    inputStates.set(context, toRefs(reactive({
       inputClass: undefined,
       inputStyle: undefined,
       name: undefined,
@@ -25,12 +26,12 @@ export function useInputCommonStore (context = 'default') {
  * @type {import('../index').UsePopupCommonStore}
  */
 export function usePopupCommonStore (context = 'default') {
-  if (!states.has(context)) {
+  if (!popupStates.has(context)) {
     popupStates.set(context, toRefs(reactive({
       transitionDuration: 300,
       transitionHide: undefined,
       transitionShow: undefined,
     })))
   }
-  return states.get(context);
+  return popupStates.get(context);
 }
