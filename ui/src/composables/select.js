@@ -1,8 +1,7 @@
 import { computed } from "vue";
 import { useFieldProps, useFieldMethods } from "./field";
 import { useSelectStore } from "../stores";
-import { useBrand } from "../composables";
-import { useGetValue } from "./common";
+import { useBrand, useGetValue } from "./common";
 
 export function useSelectMethods() {
   const { root, methods: fieldMethods } = useFieldMethods();

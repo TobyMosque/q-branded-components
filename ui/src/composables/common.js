@@ -1,4 +1,3 @@
-import { mergeProps } from "../utils/index";
 import { h, computed } from "vue";
 import { useBrandStore } from "../stores";
 import {
@@ -8,8 +7,22 @@ import {
   usePopupProxyCommonStore,
 } from "../stores/components/common.store";
 
+export function mergeProps({ root, attrs, props }) {
+  const _props = Object.assign({ ref: root }, attrs);
+  for (const key in props) {
+    _props[key] = props[key].value;
+  }
+  return _props;
+}
+
 export function useGetValue({ props, store }) {
   function getValue(field) {
+    if (field === 'outlined') {
+      console.log({
+        props: props[field],
+        store: store.value[field].value
+      })
+    }
     return props[field] === undefined ? store.value[field].value : props[field];
   }
   return {

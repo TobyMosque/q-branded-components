@@ -1,8 +1,7 @@
 import { computed } from "vue";
 import { useFieldProps, useFieldMethods } from "./field";
 import { useInputStore } from "../stores";
-import { useBrand } from "../composables";
-import { useGetValue } from "./common";
+import { useBrand, useGetValue } from "./common";
 
 export function useInputMethods() {
   const { root, methods: fieldMethods } = useFieldMethods();
@@ -22,7 +21,7 @@ export function useInputMethods() {
 }
 
 export function useInputProps({ props, name = "input" }) {
-  const { props: fieldProps } = useFieldProps({ props });
+  const { props: fieldProps } = useFieldProps({ props, name });
   const { brand } = useBrand({ props, name });
 
   const store = computed(() => useInputStore(brand.value));
@@ -42,6 +41,14 @@ export function useInputProps({ props, name = "input" }) {
     type: computed(() => getValue("type")),
     unmaskedValue: computed(() => getValue("unmaskedValue")),
   };
+
+  console.log('input', {
+    name,
+    brand: brand.value,
+    store: store.value.outlined.value,
+    props: props.outlined,
+    inputProps: inputProps.outlined.value
+  })
   return {
     props: inputProps,
   };

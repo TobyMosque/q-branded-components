@@ -9,6 +9,7 @@ const state = toRefs(
     menu: undefined,
     dialog: undefined,
     popupProxy: undefined,
+    decimalInput: undefined
   })
 );
 

@@ -58,8 +58,8 @@ const states = new Map();
  * @type {import('../index').UseSelectStore}
  */
 export function useSelectStore(context = "default") {
-  const inputState = useInputCommonStore();
-  const popupState = usePopupCommonStore();
+  const inputState = useInputCommonStore(context);
+  const popupState = usePopupCommonStore(context);
   if (!states.has(context)) {
     states.set(context, toRefs(reactive(getDefaultState())));
   }

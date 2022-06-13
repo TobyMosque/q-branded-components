@@ -4,7 +4,7 @@ import { useSelectProps, useSelectMethods } from "./select";
 import { useMenuProps, useMenuMethods } from "./menu";
 import { useDialogProps, useDialogMethods } from "./dialog";
 import { usePopupProxyProps, usePopupProxyMethods } from "./popupProxy";
-import { useWrap, useBrand } from "./common";
+import { mergeProps, useGetValue, useWrap, useBrand } from "./common";
 
 export {
   useFieldProps,
@@ -21,4 +21,6 @@ export {
   usePopupProxyMethods,
   useWrap,
   useBrand,
+  useGetValue,
+  mergeProps,
 };

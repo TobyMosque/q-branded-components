@@ -20,9 +20,9 @@ export function usePopupProxyStore(context = "default") {
     );
   }
   const popupProxyState = states.get(context);
-  const commonState = usePopupProxyCommonStore();
-  const menuState = useMenuCommonStore();
-  const dialogState = useDialogCommonStore();
+  const commonState = usePopupProxyCommonStore(context);
+  const menuState = useMenuCommonStore(context);
+  const dialogState = useDialogCommonStore(context);
   return {
     ...commonState,
     ...menuState,

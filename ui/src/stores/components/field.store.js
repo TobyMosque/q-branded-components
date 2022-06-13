@@ -8,6 +8,7 @@ export function useFieldStore(context = "default") {
   if (!states.has(context)) {
     states.set(
       context,
+      toRefs(
       reactive({
         autofocus: false,
         bgColor: undefined,
@@ -45,8 +46,8 @@ export function useFieldStore(context = "default") {
         stackLabel: false,
         standout: false,
         suffix: undefined,
-      })
+      }))
     );
   }
-  return toRefs(states.get(context));
+  return states.get(context);
 }

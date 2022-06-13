@@ -6,7 +6,7 @@ const states = new Map();
  * @type {import('../index').UseInputStore}
  */
 export function useInputStore(context = "default") {
-  const commonState = useInputCommonStore();
+  const commonState = useInputCommonStore(context);
   if (!states.has(context)) {
     states.set(
       context,
