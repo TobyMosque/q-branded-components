@@ -1,9 +1,6 @@
 <template>
   <q-page padding>
-    
     <QBrandedComponents />
-    
-    
   </q-page>
 </template>
 

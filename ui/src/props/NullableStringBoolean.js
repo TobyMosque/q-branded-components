@@ -1,4 +1,4 @@
 export default {
   type: String | Boolean,
-  default: undefined
-}
+  default: undefined,
+};

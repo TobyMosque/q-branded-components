@@ -1,4 +1,4 @@
 export default {
   type: Number,
-  default: undefined
-}
+  default: undefined,
+};

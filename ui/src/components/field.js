@@ -1,13 +1,13 @@
-import { QField } from 'quasar'
+import { QField } from "quasar";
 import {
   NullableArray,
   NullableBoolean,
   NullableString,
   NullableStringBoolean,
-  NullableStringNumber
-} from '../props'
+  NullableStringNumber,
+} from "../props";
 
-import { useWrap, useField } from '../composables'
+import { useWrap, useFieldProps, useFieldMethods } from "../composables";
 
 const lazyRulesValidator = QField.props.lazyRules.validator;
 export const FieldProps = {
@@ -17,7 +17,7 @@ export const FieldProps = {
   bottomSlots: NullableBoolean,
   brand: {
     type: String,
-    default: 'default'
+    default: "default",
   },
   clearIcon: NullableString,
   clearable: NullableBoolean,
@@ -39,9 +39,9 @@ export const FieldProps = {
   labelSlot: NullableBoolean,
   lazyRules: {
     ...NullableStringBoolean,
-    validator (val) {
-      return lazyRulesValidator.bind(this)(val)
-    }
+    validator(val) {
+      return lazyRulesValidator.bind(this)(val);
+    },
   },
   loading: NullableBoolean,
   maxlength: NullableStringNumber,
@@ -56,12 +56,19 @@ export const FieldProps = {
   stackLabel: NullableBoolean,
   standout: NullableStringBoolean,
   suffix: NullableString,
-}
+};
 
 export default {
-  name: 'QbField',
+  name: "QbField",
   props: FieldProps,
-  setup (props, { attrs, slots, expose }) {
-    return useWrap(QField, { props, attrs, slots, expose, useBrand: useField })
-  }
-}
+  setup(props, { attrs, slots, expose }) {
+    return useWrap(QField, {
+      props,
+      attrs,
+      slots,
+      expose,
+      useProps: useFieldProps,
+      useMethods: useFieldMethods,
+    });
+  },
+};

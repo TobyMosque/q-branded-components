@@ -1,4 +1,4 @@
 export default {
   type: Array,
-  default: undefined
-}
+  default: undefined,
+};

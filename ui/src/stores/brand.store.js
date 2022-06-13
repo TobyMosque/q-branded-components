@@ -1,14 +1,20 @@
-import { reactive, toRefs } from 'vue'
+import { reactive, toRefs } from "vue";
 
-const state = toRefs(reactive({
-  input: 'input',
-  field: 'field'
-}))
+const state = toRefs(
+  reactive({
+    global: "default",
+    field: undefined,
+    input: undefined,
+    select: undefined,
+    menu: undefined,
+    dialog: undefined,
+    popupProxy: undefined,
+  })
+);
 
 /**
  * @type {import('./index').UseBrandStore}
  */
-export function useBrandStore () {
+export function useBrandStore() {
   return state;
 }
-

@@ -1,14 +1,14 @@
-import { QInput, } from 'quasar'
+import { QInput } from "quasar";
 import {
   NullableBoolean,
   NullableString,
   NullableStringBoolean,
   NullableStringNumber,
-  NullableStyle
-} from '../props'
+  NullableStyle,
+} from "../props";
 
-import { useWrap, useInput } from '../composables'
-import { FieldProps } from './field'
+import { useWrap, useInputProps, useInputMethods } from "../composables";
+import { FieldProps } from "./field";
 
 export const InputProps = {
   ...FieldProps,
@@ -23,12 +23,19 @@ export const InputProps = {
   shadowText: NullableString,
   type: NullableString,
   unmaskedValue: NullableBoolean,
-}
+};
 
 export default {
-  name: 'QbInput',
+  name: "QbInput",
   props: InputProps,
-  setup (props, { attrs, slots, expose }) {
-    return useWrap(QInput, { props, attrs, slots, expose, useBrand: useInput })
-  }
-}
+  setup(props, { attrs, slots, expose }) {
+    return useWrap(QInput, {
+      props,
+      attrs,
+      slots,
+      expose,
+      useProps: useInputProps,
+      useMethods: useInputMethods,
+    });
+  },
+};

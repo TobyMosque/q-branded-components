@@ -1,18 +1,26 @@
-import Component from './components/Component'
-import QbInput from './components/input'
-import QbField from './components/field'
+import {
+  QbField,
+  QbInput,
+  QbSelect,
+  QbMenu,
+  QbDialog,
+  QbPopupProxy,
+} from "./components";
 
-const version = __UI_VERSION__
+const version = __UI_VERSION__;
 
-function install (app) {
-  app.component(Component.name, Component)
-  app.component(QbInput.name, QbInput)
-  app.component(QbField.name, QbField)
+function install(app) {
+  const components = {
+    QbField,
+    QbInput,
+    QbSelect,
+    QbMenu,
+    QbDialog,
+    QbPopupProxy,
+  };
+  for (const key in components) {
+    app.component(components[key].name, components[key]);
+  }
 }
 
-export {
-  version,
-  Component,
-
-  install
-}
+export { version, QbField, QbInput, QbSelect, install };

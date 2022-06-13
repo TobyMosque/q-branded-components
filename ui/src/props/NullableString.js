@@ -1,4 +1,4 @@
 export default {
   type: String,
-  default: undefined
-}
+  default: undefined,
+};
