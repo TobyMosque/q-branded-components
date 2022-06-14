@@ -42,13 +42,13 @@ export function useInputProps({ props, name = "input" }) {
     unmaskedValue: computed(() => getValue("unmaskedValue")),
   };
 
-  console.log('input', {
+  console.log("input", {
     name,
     brand: brand.value,
     store: store.value.outlined.value,
     props: props.outlined,
-    inputProps: inputProps.outlined.value
-  })
+    inputProps: inputProps.outlined.value,
+  });
   return {
     props: inputProps,
   };

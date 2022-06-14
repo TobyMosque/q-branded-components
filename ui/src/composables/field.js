@@ -68,13 +68,13 @@ export function useFieldProps({ props, name = "field" }) {
     standout: computed(() => getValue("standout")),
     suffix: computed(() => getValue("suffix")),
   };
-  console.log('field', {
+  console.log("field", {
     name,
     brand: brand.value,
     store: store.value.outlined.value,
     props: props.outlined,
-    inputProps: fieldProps.outlined.value
-  })
+    inputProps: fieldProps.outlined.value,
+  });
   return {
     props: fieldProps,
   };

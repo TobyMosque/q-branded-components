@@ -17,11 +17,11 @@ export function mergeProps({ root, attrs, props }) {
 
 export function useGetValue({ props, store }) {
   function getValue(field) {
-    if (field === 'outlined') {
+    if (field === "outlined") {
       console.log({
         props: props[field],
-        store: store.value[field].value
-      })
+        store: store.value[field].value,
+      });
     }
     return props[field] === undefined ? store.value[field].value : props[field];
   }

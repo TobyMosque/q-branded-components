@@ -2,7 +2,14 @@ import { QSelect } from "quasar";
 import { useWrap, useSelectProps, useSelectMethods } from "../composables";
 import { FieldProps } from "./field";
 import { PopupCommonProps } from "./common";
-import { NullableArray, NullableString, NullableBoolean, NullableStringNumber, NullableStringFunction, NullableStyle } from "../props";
+import {
+  NullableArray,
+  NullableString,
+  NullableBoolean,
+  NullableStringNumber,
+  NullableStringFunction,
+  NullableStyle,
+} from "../props";
 
 export const SelectProps = {
   ...FieldProps,

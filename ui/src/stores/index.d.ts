@@ -160,7 +160,7 @@ export interface BrandState {
   menu: String;
   dialog: String;
   popupProxy: String;
-  decimalInput: String
+  decimalInput: String;
 }
 
 export type BrandStateStore = ToRefs<BrandState>;
