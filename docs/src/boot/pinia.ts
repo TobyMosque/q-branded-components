@@ -1,5 +1,6 @@
 import { boot } from 'quasar/wrappers';
 import { Cookies, SessionStorage, LocalStorage } from 'quasar';
+import { Router } from 'vue-router';
 
 declare module 'pinia' {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -9,9 +10,16 @@ declare module 'pinia' {
   }
 }
 
+declare module 'pinia' {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  export interface PiniaCustomProperties {
+    // allow defining a number of ms for any of the actions
+    router: Router
+  }
+}
+
 export default boot(({ store, ssrContext }) => {
   store.use(({ store, options }) => {
-    console.log(options);
     if (options.persist) {
       const name = store.$id;
       let state: Record<string, never> | null;

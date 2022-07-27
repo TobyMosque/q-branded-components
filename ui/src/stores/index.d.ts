@@ -143,6 +143,61 @@ export interface DialogCommonProps {
   seamless: Boolean;
 }
 
+export interface TabProps {
+  alert: Boolean | String
+  alertIcon: String
+  contentClass: String
+  disable: Boolean
+  icon: Strings
+  label: String | Number
+  name: String | Number
+  noCaps: Boolean
+  ripple: Boolean | Record<string, unknown>
+  tabindex: String | Number
+}
+
+export interface TabsProps {
+  activeBgColor: String
+  activeClass: String
+  activeColor: String
+  align: String
+  breakpoint: String | Number
+  contentClass: String
+  dense: Boolean
+  indicatorColor: String
+  inlineLabel: Boolean
+  leftIcon: String
+  mobileArrows: Boolean
+  narrowIndicator: Boolean
+  noCaps: Boolean
+  outsideArrows: Boolean
+  rightIcon: String
+  shrink: Boolean
+  stretch: Boolean
+  switchIndicator: Boolean
+  vertical: Boolean
+}
+
+export interface TabPanelProps {
+  disable: Boolean
+  name: String
+}
+
+export interface TabPanelsProps {
+  animated: Boolean
+  dark: Boolean
+  infinite: Boolean
+  keepAlive: Boolean
+  keepAliveExclude: String | String[] | RegExp
+  keepAliveInclude: String | String[] | RegExp
+  keepAliveMax: Number
+  swipeable: Boolean
+  transitionDuration: String | Number
+  transitionNext: String
+  transitionPrev: String
+  vertical: Boolean
+}
+
 export interface MenuProps extends MenuCommonProps, PopupProxyCommonProps {}
 export interface DialogProps extends DialogCommonProps, PopupProxyCommonProps {}
 export interface PopupProxyProps
@@ -192,3 +247,19 @@ export function usePopupProxyStore(
   context: string = "default"
 ): PopupProxyStore;
 export type UsePopupProxyStore = typeof usePopupProxyStore;
+
+export type TabStore = ToRefs<TabProps>;
+export function useTabStore(): TabStore;
+export type UseTabStore = typeof useTabStore;
+
+export type TabsStore = ToRefs<TabsProps>;
+export function useTabsStore(): TabsStore;
+export type UseTabsStore = typeof useTabsStore;
+
+export type TabPanelStore = ToRefs<TabPanelProps>;
+export function useTabPanelStore(): TabPanelStore;
+export type UseTabPanelStore = typeof useTabPanelStore;
+
+export type TabPanelsStore = ToRefs<TabPanelsProps>;
+export function useTabPanelsStore(): TabPanelsStore;
+export type UseTabPanelsStore = typeof useTabPanelsStore;

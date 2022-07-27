@@ -17,7 +17,8 @@
     </q-header>
 
     <q-drawer
-      :mini="leftDrawerOpen"
+      :mini="mini"
+      v-model="drawer"
       content-class="bg-content"
       overlay
       show-if-above
@@ -52,7 +53,8 @@ interface LinkList {
 export const authLayoutStoreName = 'mainLayout';
 export const useMainLayoutStore = defineStore(authLayoutStoreName, {
   state: () => ({
-    leftDrawerOpen: false,
+    mini: true,
+    drawer: true,
   }),
   getters: {
     linksList(): LinkList[] {
@@ -104,7 +106,7 @@ export const useMainLayoutStore = defineStore(authLayoutStoreName, {
   },
   actions: {
     toggleLeftDrawer() {
-      this.leftDrawerOpen = this.leftDrawerOpen;
+      this.mini = !this.mini;
     },
   },
 });
@@ -126,13 +128,20 @@ export default defineComponent({
 import { onBeforeUnmount, computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { matDarkMode, matLightMode } from '@quasar/extras/material-icons';
+import { onBeforeRouteUpdate } from 'vue-router';
 
 const store = useMainLayoutStore();
 onBeforeUnmount(() => store.$dispose());
 
-const { leftDrawerOpen } = storeToRefs(store);
+const { drawer, mini } = storeToRefs(store);
 const essentialLinks = computed(() => store.linksList);
 const { toggleLeftDrawer } = store;
+
+onBeforeRouteUpdate(() => {
+  requestAnimationFrame(() => {
+    drawer.value = true
+  })
+})
 
 const appStore = useAppStore();
 const { dark } = storeToRefs(appStore);

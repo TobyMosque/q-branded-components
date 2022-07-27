@@ -31,7 +31,6 @@
 </template>
 
 <script lang="ts">
-import { storeToRefs } from 'pinia';
 import { useQuasar } from 'quasar';
 import { useAppStore } from 'src/stores/app';
 import { computed, defineComponent, ref } from 'vue';
@@ -45,7 +44,7 @@ export default defineComponent({
     const i18n = useI18n();
 
     const appStore = useAppStore();
-    const { locale } = storeToRefs(appStore);
+    const locale = computed(() => appStore.locale)
     const { setLocale } = appStore;
     const icon = computed(
       () => `img:flags/${locale.value || quasar.lang.isoName}.svg`
